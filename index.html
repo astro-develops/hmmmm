@@ -11,18 +11,8 @@
     <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
     <!-- Load Monaco Editor Scripts -->
     <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
-    <script>
-            require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } });
-    require(['vs/editor/editor.main'], function () {
-        var editor = monaco.editor.create(document.getElementById('container'), {
-            value: [
-                'const greeting = "Hello, world!";',
-                'console.log(greeting);'
-            ].join('\n'),
-            language: 'javascript',
-            theme: 'vs-dark'
-        });
-    });
+    <script src="index.js">
+
     </script>
 </body>
 </html>
