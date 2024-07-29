@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monaco Editor Example</title>
+    <!-- Load Monaco Editor CSS -->
     <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://unpkg.com/monaco-editor@latest/min/vs/editor/editor.main.css">
 </head>
 <body>
-    <h2>Monaco Editor Sync Loading Sample</h2>
     <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
-    <script>
-        var require = { paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } };
-    </script>
+    <!-- Load Monaco Editor Scripts -->
     <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
     <script>
+            require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
         var editor = monaco.editor.create(document.getElementById('container'), {
             value: [
-                'function x() {',
-                '\tconsole.log("Hello world!");',
-                '}'
+                'const greeting = "Hello, world!";',
+                'console.log(greeting);'
             ].join('\n'),
             language: 'javascript',
             theme: 'vs-dark'
         });
+    });
     </script>
 </body>
 </html>
